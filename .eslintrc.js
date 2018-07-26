@@ -1,13 +1,16 @@
 module.exports = {
     "env": {
         "es6": true,
-        "node": true
+        "node": true,
+        "browser": true
     },
     "extends": "eslint:recommended",
+    "plugins": ["react"],
     "parserOptions": {
         "ecmaVersion": 2018,
         "sourceType": "module"
     },
+    "parser": "babel-eslint",
     "rules": {
         "indent": [
             "error",
@@ -32,6 +35,8 @@ module.exports = {
         "no-constant-condition": [
             "error",
             { "checkLoops": false }
-        ]
+        ],
+        "react/jsx-uses-react": "error",
+        "react/jsx-uses-vars": "error"
     }
 };
