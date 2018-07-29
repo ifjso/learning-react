@@ -5,4 +5,6 @@ const Ingredient = ({name, amount, measurement}) =>
         <span className="name">{name}</span>
     </li>;
 
+Ingredient.displayName = "Ingredient";
+
 export default Ingredient;

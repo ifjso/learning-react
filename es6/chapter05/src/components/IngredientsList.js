@@ -7,4 +7,6 @@ const IngredientsList = ({list}) =>
         )}
     </ul>;
 
+IngredientsList.displayName = "IngredientsList";
+
 export default IngredientsList;

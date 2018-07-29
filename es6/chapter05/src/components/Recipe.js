@@ -8,4 +8,6 @@ const Recipe = ({name, ingredients, steps}) =>
         <Instructions title="조리 절차" steps={steps} />
     </section>;
 
+Recipe.displayName = "Recipe";
+
 export default Recipe;

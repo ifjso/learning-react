@@ -3,7 +3,7 @@ import { render } from "react-dom";
 import Menu from "./components/Menu";
 import data from "../data/recipes";
 
-window.react = React;
+window.React = React;
 
 render(
     <Menu recipes={data} />,

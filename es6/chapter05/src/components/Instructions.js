@@ -5,4 +5,6 @@ const Instructions = ({title, steps}) =>
             <p key={i}>{step}</p>)}
     </section>;
 
+Instructions.displayName = "Instructions";
+
 export default Instructions;
