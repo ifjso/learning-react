@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
 
-const Summary = ({title, ingredients, steps}) =>
+const Summary = ({title = '[무제]', ingredients = 0, steps = 0}) =>
     <div className="summary">
         <h1>{title}</h1>
         <p>
@@ -20,11 +20,11 @@ Summary.propTypes = {
                 null
 };
 
-Summary.defaultProps = {
-    ingredients: 0,
-    steps: 0,
-    title: '[무제]'
-};
+// Summary.defaultProps = {
+//     ingredients: 0,
+//     steps: 0,
+//     title: '[무제]'
+// };
 
 Summary.displayName = 'Summary';
 
