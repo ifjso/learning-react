@@ -9,7 +9,7 @@
             "request": "launch",
             "name": "Launch via Babel",
             "program": "${file}",
-            "runtimeExecutable": "${workspaceRoot}/node_modules/.bin/babel-node",
+            // "runtimeExecutable": "${workspaceRoot}/node_modules/.bin/babel-node",
             "cwd": "${workspaceRoot}"
         }
     ]
