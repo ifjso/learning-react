@@ -1,13 +1,10 @@
 import React from 'react';
 import { render } from 'react-dom';
-import AddColorForm from './components/AddColorFormStateless';
+import StarRating from './components/StarRating';
 
 window.React = React;
 
-const logColor = (title, color) =>
-    console.log(`새로운 색: ${title} | ${color}`);
-
 render(
-    <AddColorForm onNewColor={logColor} />,
+    <StarRating totalStars={10} starsSelected={7} />,
     document.getElementById('react-container')
 );
