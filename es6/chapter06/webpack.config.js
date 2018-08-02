@@ -16,7 +16,7 @@ module.exports = {
                 exclude: /(node_moudles)/,
                 loader: "babel-loader",
                 query: {
-                    presets: ["env", "react"]
+                    presets: ["env", "react", "stage-2"]
                 }
             },
             {
@@ -27,6 +27,15 @@ module.exports = {
                         plugins: () => [require('autoprefixer')]
                     }
                 }]
+            },
+            {
+                test: /\.scss/,
+                use: ['style-loader','css-loader', {
+                    loader: 'postcss-loader',
+                    options: {
+                        plugins: () => [require('autoprefixer')]
+                    }
+                }, 'sass-loader']
             }
         ]
     },
