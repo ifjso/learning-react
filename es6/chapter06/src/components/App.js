@@ -33,7 +33,8 @@ class App extends Component {
         this.setState(prevState => ({
             colors: prevState.colors.map(color =>
                 (color.id !== id) ?
-                    color : {
+                    color :
+                    {
                         ...color,
                         rating
                     }
@@ -43,8 +44,7 @@ class App extends Component {
 
     removeColor(id) {
         this.setState(prevState => ({
-            colors: prevState.colors.filter(color =>
-                (color.id !== id))
+            colors: prevState.colors.filter(color => (color.id !== id))
         }));
     }
 
@@ -59,5 +59,7 @@ class App extends Component {
         );
     }
 }
+
+App.displayName = "App";
 
 export default App;
