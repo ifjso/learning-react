@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Mounting Lifecycle</title>
+    </head>
+    <body>
+        <div id="react-container"></div>
+
+        <script>
+            const getFakeMembers = count => new Promise((resolve, reject) => {
+                const api = `https://api.randomuser.me?nat=US&results=${count}`;
+                const request = new XMLHttpRequest();
+                request.open('GET', api);
+                request.onload = () => (request.status == 200) ?
+                    resolve(JSON.parse(request.response).results) :
+                    reject(Error(request.statusText));
+                request.onerror = err => reject(err);
+                request.send();
+            });
+
+            getFakeMembers(3).then(members =>
+                console.log(members.map(m => m.name.first).join(','))
+            );
+        </script>
+    </body>
+</html>
