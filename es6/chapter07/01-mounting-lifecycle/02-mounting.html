@@ -17,7 +17,7 @@
             const { render } = ReactDOM;
 
             const getFakeMembers = count => new Promise((resolve, reject) => {
-                const api = `https://api.randomuser.mde?nat=US&results=${count}`;
+                const api = `https://api.randomuser.me?nat=US&results=${count}`;
                 const request = new XMLHttpRequest();
                 request.open('GET', api);
                 request.onload = () => (request.status == 200) ?
@@ -67,7 +67,7 @@
                                     members.map((user, i) =>
                                         <Member key={i} {...user} />
                                     ) :
-                                <span>0 멤버 로딩됨...</span>
+                                    <span>0 멤버 로딩됨...</span>
                             }
                             {(error) ? <p>멤버 로딩 오류: {error.message}</p> : ""}
                         </div>
