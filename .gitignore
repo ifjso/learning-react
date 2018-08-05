@@ -15,3 +15,5 @@ node_modules
 dist
 public/dist
 
+# lock 파일
+**/*.lock
