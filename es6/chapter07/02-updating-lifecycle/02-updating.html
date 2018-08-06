@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta name="viewport" content="minimum-scale=1.0, width=device-width, maximum-scale=1.0, user-scalable=no">
+        <meta charset="utf-8">
+        <title>Update Lifecycle</title>
+    </head>
+    <body>
+        <div id="react-container"></div>
+
+        <script src="https://unpkg.com/react@16/umd/react.development.js"></script>
+        <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+        <script src="https://unpkg.com/babel-standalone@6.15.0/babel.min.js"></script>
+        <script src="https://unpkg.com/xregexp/xregexp-all.js"></script>
+
+        <script type="text/babel">
+            const { Component } = React;
+            const { render } = ReactDOM;
+
+            class HiddenMessages extends Component {
+                constructor(props) {
+                    super(props);
+                    this.state = {
+                        messages: [
+                            "The crow crows after midnight",
+                            "Jericho Jericho Go",
+                            "엄마가 섬그늘에 굴 따러 가면"
+                        ],
+                        showing: -1
+                    }
+                }
+
+                componentWillMount() {
+                    this.interval = setInterval(() =>
+                        this.setState(prevState => {
+                            let { messages, showing } = prevState;
+                            showing = (++showing >= messages.length) ? 0 : showing;
+                            return { showing };
+                        }), 1000);
+                }
+
+                componentWillUnmount() {
+                    clearInterval(this.interval);
+                }
+
+                render() {
+                    const { messages, showing } = this.state;
+                    return (
+                        <div className="hidden-messages">
+                            {messages.map((message, i) =>
+                                <HiddenMessage key={i} hide={i !== showing}>
+                                    {message}
+                                </HiddenMessage>
+                            )}
+                        </div>
+                    );
+                }
+            }
+
+            class HiddenMessage extends Component {
+                constructor(props) {
+                    super(props);
+                    this.state = {
+                        hidden: (props.hide) ? props.hide : true
+                    };
+                }
+
+                componentWillReceiveProps(nextProps) {
+                    this.setState({ hidden: nextProps.hide });
+                }
+
+                render() {
+                    const { children } = this.props;
+                    const { hidden } = this.state;
+                    return (
+                        <p>
+                            {(hidden) ? children.replace(XRegExp('\\pL', 'g'), 'x') : children}
+                        </p>
+                    );
+                }
+            }
+
+            // const HiddenMessage = ({hide, children}) =>
+            //     <p>
+            //         {(hide) ? children.replace(XRegExp('\\pL', 'g'), 'x') : children}
+            //     </p>;
+            
+            render(
+                <HiddenMessages />,
+                document.getElementById('react-container')
+            );
+        </script>
+    </body>
+</html>
