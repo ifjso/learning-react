@@ -17,3 +17,6 @@ public/dist
 
 # lock 파일
 **/*.lock
+
+# jest coverage
+coverage
