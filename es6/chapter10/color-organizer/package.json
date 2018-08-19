@@ -1,0 +1,57 @@
+{
+  "name": "learning-react",
+  "version": "1.0.0",
+  "description": "Learning React",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "autoprefixer": "^9.0.1",
+    "babel-cli": "^6.26.0",
+    "babel-core": "^6.26.3",
+    "babel-eslint": "^8.2.6",
+    "babel-jest": "^23.4.2",
+    "babel-loader": "^7.1.5",
+    "babel-plugin-transform-object-rest-spread": "^6.26.0",
+    "babel-preset-env": "^1.7.0",
+    "babel-preset-react": "^6.24.1",
+    "babel-preset-stage-2": "^6.24.1",
+    "css-loader": "^1.0.0",
+    "deep-freeze": "^0.0.1",
+    "enzyme": "^3.4.4",
+    "enzyme-adapter-react-16": "^1.2.0",
+    "eslint": "^5.2.0",
+    "eslint-plugin-react": "^7.10.0",
+    "jest-css-modules": "^1.1.0",
+    "node-sass": "^4.9.2",
+    "postcss-loader": "^2.1.6",
+    "react-addons-test-utils": "^15.6.2",
+    "sass-loader": "^7.1.0",
+    "style-loader": "^0.21.0",
+    "webpack": "^4.16.3",
+    "webpack-cli": "^3.1.0"
+  },
+  "dependencies": {
+    "prop-types": "^15.6.2",
+    "react": "^16.4.1",
+    "react-dom": "^16.4.1",
+    "react-icons": "2.2.5",
+    "react-redux": "^5.0.7",
+    "redux": "^4.0.0",
+    "uuid": "^3.3.2"
+  },
+  "jest": {
+    "setupFiles": [
+      "./__tests__/global.js"
+    ],
+    "modulePathIgnorePatterns": [
+      "global.js"
+    ],
+    "moduleNameMapper": {
+      "\\.(scss)$": "<rootDir>/node_modules/jest-css-modules"
+    }
+  }
+}
