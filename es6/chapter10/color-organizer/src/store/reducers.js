@@ -1,6 +1,6 @@
 import C from '../constants'
 
-export const color = (state = {}, action) => {
+export const color = (state = {}, action = {type: null}) => {
     switch (action.type) {
         case C.ADD_COLOR:
             return {
