@@ -2,8 +2,8 @@ import deepFreeze from 'deep-freeze'
 import C from '../../../src/constants'
 import { color } from '../../../src/store/reducers'
 
-describe("color 리듀서", () => {
-    it("ADD_COLOR 성공", () => {
+describe("color Reducer", () => {
+    it("ADD_COLOR success", () => {
         const state = {}
         const action = {
             type: C.ADD_COLOR,
@@ -27,7 +27,7 @@ describe("color 리듀서", () => {
             })
     })
 
-    it("RATE_COLOR 성공", () => {
+    it("RATE_COLOR success", () => {
         const state = {
             id: 0,
             title: 'Test Teal',
@@ -35,6 +35,7 @@ describe("color 리듀서", () => {
             timestamp: 'Sat Mar 12 2016 16:12:09 GMT-0800 (PST)',
             rating: 0
         }
+
         const action = {
             type: C.RATE_COLOR,
             id: 0,
@@ -54,4 +55,8 @@ describe("color 리듀서", () => {
                 rating: 3
             })
     })
+
+    it("Defaults array for incorrect action", () =>
+        expect(color()).toEqual({})
+    )
 })
