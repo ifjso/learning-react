@@ -9,6 +9,7 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "@types/jest": "^23.3.1",
     "autoprefixer": "^9.0.1",
     "babel-cli": "^6.26.0",
     "babel-core": "^6.26.3",
@@ -54,10 +55,12 @@
     "moduleNameMapper": {
       "\\.(scss)$": "<rootDir>/node_modules/jest-css-modules"
     },
-    "verbose": true,
+    "verbose": false,
     "collectCoverage": true,
     "notify": true,
-    "collectCoverageFrom": ["src/**"],
+    "collectCoverageFrom": [
+      "src/**"
+    ],
     "coverageThreshold": {
       "global": {
         "branches": 85,
