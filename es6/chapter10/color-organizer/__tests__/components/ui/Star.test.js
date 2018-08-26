@@ -3,6 +3,7 @@ import Star from '../../../src/components/ui/Star'
 const { shallow } = global.Enzyme
 
 describe("<Star /> UI Component", () => {
+
     it("renders default star", () =>
         expect(
             shallow(<Star />)
@@ -16,6 +17,10 @@ describe("<Star /> UI Component", () => {
                 .find('div.selected.star')
                 .length
         ).toBe(1))
+
+    it("click does not cause error", () => {
+        shallow(<Star selected={true} />).find('div').simulate('click')
+    })
 
     it("invokes onClick", () => {
         const _click = jest.fn()
