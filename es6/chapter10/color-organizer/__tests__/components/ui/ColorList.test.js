@@ -1,3 +1,5 @@
+import { compose } from 'redux'
+import toJSON from 'enzyme-to-json'
 import ColorList from '../../../src/components/ui/ColorList'
 
 const { shallow, mount } = global.Enzyme
@@ -11,7 +13,17 @@ jest.mock('../../../src/components/ui/Color', () =>
 )
 
 describe("<ColorList /> UI Component", () => {
+
+    afterAll(() => jest.resetAllMocks())
+
     describe("Rendering UI", () => {
+
+        it("Renders correctly", () => 
+            compose(expect, toJSON, shallow)(
+                <ColorList colors={global._testColors} />
+            ).toMatchSnapshot()
+        )
+
         it("Defaults properties correctly", () =>
             expect(shallow(<ColorList />).find('p').text())
                 .toBe("No colors listed. (Add a color)")
