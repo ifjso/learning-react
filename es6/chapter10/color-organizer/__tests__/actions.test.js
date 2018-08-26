@@ -92,7 +92,10 @@ describe('Action Creators', () => {
     })
 
     describe("sortColors", () => {
-        beforeAll(() => store = storeFactory())
+        beforeEach(() => {
+            global.localStorage.clear()
+            store = storeFactory()
+        })
 
         it("can dispatch sort colors", () => {
             store.dispatch(sortColors("SORTED_BY_RATING"))
