@@ -22,9 +22,9 @@ describe("<Menu /> Container", () => {
         </Provider>
     ))
 
-    it("maps sort from state to props", () => {
+    it("maps sort from state to props", () =>
         expect(wrapper.find("SortMenuMock").props().sort).toBe("SORTED_BY_RATING")
-    })
+    )
 
     it("maps onSelect to dispatch", () => {
         wrapper.find("SortMenuMock")
