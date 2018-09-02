@@ -1,7 +1,7 @@
 const path = require('path')
 
 module.exports = {
-    mode: "development",
+    mode: "production",
     entry: "./src/index.js",
     output: {
         path: path.join(__dirname, "dist", "assets"),
@@ -9,6 +9,12 @@ module.exports = {
         sourceMapFilename: "bundle.map",
     },
     devtool: "#source-map",
+    devServer: {
+        inline: true,
+        contentBase: './dist',
+        publicPath: '/assets/',
+        port: 3000
+    },
     module: {
         rules: [
             {
