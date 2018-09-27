@@ -9,7 +9,7 @@ const PageTemplate = ({children}) =>
     </div>
 
 export const Home = () =>
-    <section className="home">
+    <div className="home">
         <h1>[홈페이지]</h1>
         <nav>
             <Link to="about">[회사 소개]</Link>
@@ -17,7 +17,7 @@ export const Home = () =>
             <Link to="products">[제품]</Link>
             <Link to="contact">[고객 지원]</Link>
         </nav>
-    </section>
+    </div>
 
 export const About = () =>
     <PageTemplate>
