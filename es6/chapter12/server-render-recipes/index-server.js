@@ -32,7 +32,7 @@ const sendHTMLPage = (req, res) =>
 
 const app = express()
     .use(logger)
-    .use(express.static('./assets'))
+    .use(express.static('./dist/assets'))
     .use(sendHTMLPage)
 
 app.listen(3000, () => console.log(`'http://localhost:3000'에서 조리법 앱 작동 중`))
