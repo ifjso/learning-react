@@ -1,9 +1,10 @@
 import { connect } from 'react-redux'
 import AddColorForm from './ui/AddColorForm'
 import ColorList from './ui/ColorList'
+import ColorDetails from './ui/ColorDetails'
 import SortMenu from './ui/SortMenu'
 import { addColor, removeColor, rateColor, sortColors} from '../actions'
-import { sortFunction } from '../lib/array-helpers'
+import { sortFunction, findById } from '../lib/array-helpers'
 
 export const NewColor = connect(
     null,
@@ -38,3 +39,7 @@ export const Colors = connect(
         }
     })
 )(ColorList)
+
+export const Color = connect(
+    (state, props) => findById(state.colors, props.match.params.id)
+)(ColorDetails)
