@@ -1,12 +1,12 @@
 import React from 'react'
-import { render } from 'react-dom'
+import { hydrate } from 'react-dom'
 import Menu from './components/Menu'
 
 window.React = React
 
 alert('bundle loaded, Rendering in browser')
 
-render(
+hydrate(
     <Menu recipes={__DATA__} />,
     document.getElementById('react-container')
 )
