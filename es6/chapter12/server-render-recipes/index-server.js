@@ -2,7 +2,7 @@ import React from 'react'
 import express from 'express'
 import { renderToString } from 'react-dom/server'
 import Menu from './components/Menu'
-import data from './assets/recipes.json'
+import data from './data/recipes.json'
 
 global.React = React
 
