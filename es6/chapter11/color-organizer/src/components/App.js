@@ -1,6 +1,7 @@
 import { Route, Switch } from 'react-router-dom'
-// import Whoops404 from './ui/Whoops404'
-import { NewColor, Menu, Colors, Color } from './containers'
+import Menu from './ui/Menu'
+import Whoops404 from './ui/Whoops404'
+import { NewColor, Colors, Color } from './containers'
 import '../stylesheets/APP.scss'
 
 const App = () =>
@@ -9,9 +10,13 @@ const App = () =>
         <Route path="/"
             component={() => (
                 <div className="app">
-                    <Menu />
+                    <Route component={Menu} />
                     <NewColor />
-                    <Colors />
+                    <Switch>
+                        <Route exact path="/" component={Colors} />
+                        <Route path="/sort/:sort" component={Colors} />
+                        <Route component={Whoops404} />
+                    </Switch>
                 </div>
             )} />
     </Switch>
