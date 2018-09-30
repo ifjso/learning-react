@@ -1,17 +1,20 @@
 import express from 'express'
 import path from 'path'
 import fs from 'fs'
+import bodyParser from 'body-parser'
 import { Provider } from 'react-redux'
 import { compose } from 'redux'
 import { StaticRouter } from 'react-router-dom'
 import { renderToString } from 'react-dom/server'
 import storeFactory from '../store'
 import App from '../components/App'
+import api from './color-api'
+import initialState from '../../data/initialState'
 
 const staticCSS = fs.readFileSync(path.join(__dirname, '../../dist/assets/main.css'))
 const fileAssets = express.static(path.join(__dirname, '../../dist/assets'))
 
-const serverStore = storeFactory()
+const serverStore = storeFactory(true, initialState)
 
 serverStore.subscribe(() =>
     fs.writeFile(
@@ -26,6 +29,7 @@ const buildHTMLPage = ({html, state}) =>
         <!DOCTYPE html>
         <html>
             <head>
+                <meta name="viewport" content="minimum-scale=1.0, maximum-scale=1.0, width=device-width, user-scalable=no" />
                 <meta charset="utf-8">
                 <title>유니버셜 색 관리 앱</title>
                 <style>${staticCSS}</style>
@@ -54,7 +58,7 @@ const renderComponentsToHTML = ({url, store}) =>
 
 const makeClientStoreFrom = store => url =>
     ({
-        store: storeFactory(store.getState()),
+        store: storeFactory(false, store.getState()),
         url
     })
 
@@ -80,5 +84,7 @@ const addStoreToRequestPipeline = (req, res, next) => {
 export default express()
     .use(logger)
     .use(fileAssets)
+    .use(bodyParser.json())
     .use(addStoreToRequestPipeline)
+    .use('/api', api)
     .use(respond)

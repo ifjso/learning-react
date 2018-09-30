@@ -1,11 +1,12 @@
+import PropTypes from 'prop-types'
 import { NavLink } from 'react-router-dom'
 import '../../stylesheets/Menu.scss'
 
 const selectedStyle = { color: 'red' }
 
-const Menu = ({ match }) =>
+const Menu = ({ sort }) =>
     <nav className="menu">
-        <NavLink to="/" style={match.isExact && selectedStyle}>
+        <NavLink to="/" style={(sort === '/') ? selectedStyle : {}}>
             날짜
         </NavLink>
 
@@ -17,5 +18,9 @@ const Menu = ({ match }) =>
             평점
         </NavLink>
     </nav>
+
+Menu.propTypes = {
+    sort: PropTypes.string
+}
 
 export default Menu

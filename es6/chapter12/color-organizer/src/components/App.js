@@ -8,9 +8,9 @@ const App = () =>
     <Switch>
         <Route exact path="/:id" component={Color} />
         <Route path="/"
-            component={() => (
+            component={({location}) => (
                 <div className="app">
-                    <Route component={Menu} />
+                    <Menu sort={location.pathname.replace('/sort/', '')} />
                     <NewColor />
                     <Switch>
                         <Route exact path="/" component={Colors} />
