@@ -36,6 +36,7 @@
   },
   "resolutions": {
     "node-fetch": "^2.6.1",
-    "ssri": "^6.0.2" 
+    "ssri": "^6.0.2",
+    "postcss": "^8.2.10"
   }
 }
