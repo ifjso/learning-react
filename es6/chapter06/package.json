@@ -37,6 +37,9 @@
   "resolutions": {
     "node-fetch": "^2.6.1",
     "ssri": "^6.0.2",
-    "postcss": "^8.2.10"
+    "postcss": "^8.2.10",
+    "trim-newlines": "^3.0.1",
+    "glob-parent": "^5.1.2",
+    "browserslist": "^4.16.5"
   }
 }
