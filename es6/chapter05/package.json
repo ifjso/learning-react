@@ -28,6 +28,8 @@
     "react-dom": "^16.4.2"
   },
   "resolutions": {
-    "postcss": "^8.2.10"
+    "postcss": "^8.2.10",
+    "glob-parent": "^5.1.2",
+    "braces": "^2.3.1"
   }
 }
